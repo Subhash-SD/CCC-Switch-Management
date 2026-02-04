@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CCC SWITCH MANAGEMENT</title>
+    <style>
+        /* Force the app to take up 100% of any screen */
+        body, html { margin: 0; padding: 0; height: 100%; width: 100%; overflow: hidden; background: #217346; font-family: sans-serif; }
+        
+        /* The container for your Excel sheet */
+        #app-viewport {
+            width: 100vw;
+            height: 100vh;
+            border: none;
+        }
+        #iframe-wrapper {
+            height: 50vh;
+            overflow: hidden;
+        }
+
+        /* A floating button to trigger Fullscreen Mode */
+        #fullscreen-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            padding: 10px 20px;
+            background-color: #ffffff;
+            color: #217346;
+            border: 2px solid #217346;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            font-weight: bold;
+            z-index: 1000;
+        }
+    </style>
+</head>
+<body>
+
+    <button id="fullscreen-btn">Toggle Fullscreen</button>
+
+    <iframe id="app-viewport" 
+	src="https://1drv.ms/x/c/c765f9b7b3ecfee5/IQQIE71v6g1vQrlQjQB84mJbAYJAYKvu3gjfXCK9eXDxFPc" width="402" height="346" frameborder="0" scrolling="no">
+    </iframe>
+
+    <script>
+        const btn = document.getElementById('fullscreen-btn');
+        const doc = document.documentElement;
+
+        btn.addEventListener('click', () => {
+            if (!document.fullscreenElement) {
+                // Enter Fullscreen
+                if (doc.requestFullscreen) doc.requestFullscreen();
+                else if (doc.webkitRequestFullscreen) doc.webkitRequestFullscreen();
+                btn.innerText = "Exit Fullscreen";
+            } else {
+                // Exit Fullscreen
+                if (document.exitFullscreen) document.exitFullscreen();
+                btn.innerText = "Toggle Fullscreen";
+            }
+        });
+    </script>
+</body>
+</html>
