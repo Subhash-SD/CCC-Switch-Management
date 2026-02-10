@@ -18,7 +18,15 @@
             height: 50vh;
             overflow: hidden;
         }
-
+		#footer-bar {
+    	   position: fixed;
+    	   bottom: 0;
+    	   left: 0;
+   	   width: 100%;
+    	   height: 57px; /* Adjust this height as needed */
+    	   background-color: #27887C; /* Matches your Excel green theme */
+    	   z-index: 999; /* Higher than the iframe, but lower than the button */
+        }
         /* A floating button to trigger Fullscreen Mode */
         #fullscreen-btn {
             position: fixed;
@@ -44,6 +52,8 @@
 	src="https://1drv.ms/x/c/c765f9b7b3ecfee5/IQRClgr0k-HBQ6Hz5EmOyLmJAbv_M1KX_q6_Sx0NjZK9KX4" width="402" height="346" frameborder="0" scrolling="no">
     </iframe>
 
+	<div id="footer-bar"></div>
+
     <script>
         const btn = document.getElementById('fullscreen-btn');
         const doc = document.documentElement;
@@ -64,5 +74,6 @@
 </body>
 
 </html>
+
 
 
